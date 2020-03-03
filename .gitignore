@@ -1,2 +1,6 @@
-./project/
-./tb/
+project
+tb
+pynq
+max5134*
+/script
+!/script/*tcl
