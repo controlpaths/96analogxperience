@@ -2,9 +2,9 @@
 ## Digital tav
 
 set projectDir ../project
-set projectName 96AnalogXperience
-set bdName ax96_bd
-set bdNameWrapper ax96_bd_wrapper
+set projectName ultra96_fir8
+set bdName ultra96_fir8
+set bdNameWrapper ultra96_fir8_wrapper
 
 ## Delete log and journal
 file delete {*}[glob vivado*.backup.jou]
@@ -18,7 +18,10 @@ create_project -force $projectDir/$projectName.xpr
 set_property target_language Verilog [current_project]
 
 ## Adding verilog files
-#add_file ../src/*.v
+add_file [glob ../src/*.v]
+
+## Add memory files
+add_file ../memory_content/signal3.mem
 
 ## Adding constraints files
 read_xdc ../xdc/96analogXperience_constraints.xdc
@@ -30,11 +33,11 @@ set_property BOARD_PART em.avnet.com:ultra96v2:part0:1.0 [current_project]
 create_bd_design $bdName
 
 ## Add ip repo
-set_property ip_repo_paths {../ip_repo/cp_96AnalogXperience_1.0} [current_project]
+set_property ip_repo_paths {../ip_repo} [current_project]
 update_ip_catalog
 
 ## Configure block design through external file
-source ./bd/96analogxperience_bd.tcl
+source ./bd/ultra96_fir8_bd.tcl
 
 ## Regenerate block design layout
 regenerate_bd_layout
