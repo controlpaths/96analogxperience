@@ -1,4 +1,4 @@
-/*
+/**
   Module name:  signal_generator_v1_0
   Author: P Trujillo (pablo@controlpaths.com)
   Date: Mar20
@@ -6,7 +6,7 @@
           Clock enable generation according prescaler input.
   Revision:
           1.0: Module created.
-*/
+**/
 
 module signal_generator_v1_0 (
   input clk,

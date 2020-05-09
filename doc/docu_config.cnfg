@@ -1,0 +1,7 @@
+file ../../96analogxperience/src/cen_generator_v1_0.v
+file ../../96analogxperience/src/dacx0004_driver_v1_0.v
+file ../../96analogxperience/src/dacx0004_driver_v2_0.v
+file ../../96analogxperience/src/signal_generator_v1_0.v
+
+
+outputdir ../../96analogxperience/doc/

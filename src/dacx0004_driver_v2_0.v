@@ -1,4 +1,4 @@
-/*
+/**
   Module name:  dacx0004_driver_v2_0
   Author: P Trujillo (pablo@controlpaths.com)
   Date: Dec 2019
@@ -8,7 +8,7 @@
           1.0: Module created.
           2.0: When CE is asserted, all channels are write.
                Input now are signed.
-*/
+**/
 
 module dacx0004_driver_v2_0 (
   input clk100mhz,
@@ -33,13 +33,16 @@ module dacx0004_driver_v2_0 (
   reg [1:0] r2_ch_select;
   reg r_spi_start;
   reg [3:0] r4_spi_state;
-  reg [4:0] r5_data_counter; // spi data counter (32 bits)
+  reg [4:0] r5_data_counter; /* SPI data counter (32 bits)*/
   wire w_busy_spi;
   reg [4:0] r5_counter_sync;
   reg [2:0] r3_counter_nldac;
   reg [2:0] r3_index_config;
   wire [31:0] w32x6_config_regs [0:5];
-  wire [15:0] w16_data_ch0, w16_data_ch1, w16_data_ch2, w16_data_ch3;
+  wire [15:0] w16_data_ch0;
+  wire [15:0] w16_data_ch1;
+  wire [15:0] w16_data_ch2;
+  wire [15:0] w16_data_ch3;
 
   assign w32x6_config_regs[0] = 32'h0800000F; /* Disable SDO register */
   assign w32x6_config_regs[1] = 32'h04F0000F;

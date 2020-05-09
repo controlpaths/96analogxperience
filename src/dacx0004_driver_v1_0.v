@@ -1,4 +1,4 @@
-/*
+/**
   Module name:  dacx0004_driver_v1_0
   Author: P Trujillo (pablo@controlpaths.com)
   Date: Dec 2019
@@ -6,7 +6,7 @@
           Driver for DACx0004. 96AnalogXperience
   Revision:
           1.0: Module created.
-*/
+**/
 
 module dacx0004_driver_v1_0 (
   input clk100mhz,
@@ -31,12 +31,12 @@ module dacx0004_driver_v1_0 (
   reg [1:0] r2_ch_select;
   reg r_spi_start;
   reg [3:0] r4_spi_state;
-  reg [4:0] r5_data_counter; // spi data counter (32 bits)
+  reg [4:0] r5_data_counter; /* SPI data counter (32 bits) */
   wire w_busy_spi;
   reg [4:0] r5_counter_sync;
   reg [2:0] r3_counter_nldac;
   reg [2:0] r3_index_config;
-  wire [31:0] w32x6_config_regs [0:5];
+  reg [31:0] w32x6_config_regs [0:5];
 
   assign w32x6_config_regs[0] = 32'h0800000F; /* Disable SDO register */
   assign w32x6_config_regs[1] = 32'h04F0000F;
@@ -104,7 +104,7 @@ module dacx0004_driver_v1_0 (
           r_spi_start <= 1'b1;
         end
         WAIT_CHX: begin
-          if (!w_busy_spi) r4_dac_state <= WAIT_SYNC_HIGH_1;//LDAC_UPDATE;
+          if (!w_busy_spi) r4_dac_state <= WAIT_SYNC_HIGH_1; /* LDAC_UPDATE;*/
           else r4_dac_state <= WAIT_CHX;
 
           r_spi_start <= 1'b0;
